@@ -4,7 +4,7 @@ include("dist/function/format_rupiah.php");
 
 $tgl = date('Y-m-d');
 $ttl = 0;
-$sql = "SELECT * FROM trx WHERE tgl_trx='$tgl'";
+$sql = "SELECT * FROM reservations WHERE tanggal='$tgl'";
 $ress = mysqli_query($conn, $sql);
 $jmltrx = mysqli_num_rows($ress);
 // query database mencari data admin
