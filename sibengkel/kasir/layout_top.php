@@ -158,24 +158,6 @@ $tahun = date("Y");
 							}
 							?>
 						</ul>
-						<?php
-						if (isset($menuparent) && $menuparent == "laporan") {
-							echo '<li class="active">';
-						} else {
-							echo '<li>';
-						}
-						?>
-						<!-- open <li> tag generated with php, see line 155-160 -->
-						<a href="#"><i class="fa fa-folder fa-fw"></i>&nbsp;Laporan<span class="fa arrow"></span></a>
-						<ul class="nav nav-second-level">
-							<?php
-							if ($pagedesc == "Laporan") {
-								echo '<li><a href="laporan.php" class="active">Laporan</a></li>';
-							} else {
-								echo '<li><a href="laporan.php">Laporan</a></li>';
-							}
-							?>
-						</ul><!-- /.nav-second-level -->
 						</li>
 					</ul>
 				</div>
