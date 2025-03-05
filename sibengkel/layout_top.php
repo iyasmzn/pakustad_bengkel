@@ -186,7 +186,7 @@ $tahun = date("Y");
 						}
 						?>
 						<!-- open <li> tag generated with php, see line 155-160 -->
-						<a href="#"><i class="fa fa-th-large fa-fw"></i>&nbsp;Data Barang dan Jasa<span class="fa arrow"></span></a>
+						<a href="#"><i class="fa fa-th-large fa-fw"></i>&nbsp;Sparepart dan Jasa<span class="fa arrow"></span></a>
 						<ul class="nav nav-second-level">
 							<?php
 							// if($pagedesc == "Barang Masuk") {
@@ -196,9 +196,9 @@ $tahun = date("Y");
 							// 	echo '<li><a href="trxbarang.php">Barang Masuk</a></li>';
 							// }
 							if ($pagedesc == "Data Barang") {
-								echo '<li><a href="barang.php" class="active">Data Barang</a></li>';
+								echo '<li><a href="barang.php" class="active">Data Sparepart</a></li>';
 							} else {
-								echo '<li><a href="barang.php">Data Barang</a></li>';
+								echo '<li><a href="barang.php">Data Sparepart</a></li>';
 							}
 							if ($pagedesc == "Data Jasa") {
 								echo '<li><a href="jasa.php" class="active">Data Jasa</a></li>';
