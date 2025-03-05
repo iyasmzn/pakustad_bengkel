@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AutoCare Center - Booking Servis Kendaraan</title>
+    <title>SIBengkel Center - Booking Servis Kendaraan</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- FontAwesome -->
@@ -17,7 +17,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-blue-gradient py-3">
         <div class="container">
-            <a class="navbar-brand" href="#">AutoCare Center</a>
+            <a class="navbar-brand" href="#">SIBengkel Center</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -31,7 +31,7 @@
                         <a class="nav-link" href="#reservasi">Reservasi</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-light" href="#">Login</a>
+                        <a class="btn btn-light" href="../login.php">Login</a>
                     </li>
                 </ul>
             </div>
@@ -118,37 +118,52 @@
     <!-- Reservasi Section -->
     <section id="reservasi" class="bg-light py-5">
         <div class="container">
-            <h2 class="text-center mb-4 fw-bold">Reservasi Servis</h2>
+            <h2 class="text-center mb-4 fw-bold"><i class="fa-brands fa-wpforms"></i> Reservasi Servis & Register</h2>
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="card shadow rounded-4">
                         <div class="card-body p-4">
-                            <form id="reservasiForm">
+                            <form id="reservasiForm" action="config/reservation_insert.php" method="POST" enctype="multipart/form-data">
+                                <!-- nama -->
                                 <div class="mb-3">
                                     <label for="nama" class="form-label">Nama Lengkap</label>
-                                    <input type="text" class="form-control rounded-3" id="nama" required>
+                                    <input type="text" name="nama" class="form-control rounded-3" id="nama" required>
                                 </div>
+                                <!-- alamat -->
                                 <div class="mb-3">
-                                    <label for="email" class="form-label">Email</label>
-                                    <input type="email" class="form-control rounded-3" id="email" required>
+                                    <label for="alamat" class="form-label">Alamat</label>
+                                    <textarea name="alamat" class="form-control rounded-3" id="alamat"></textarea>
                                 </div>
+                                <!-- username -->
+                                <div class="mb-3">
+                                    <label for="user_pelanggan" class="form-label">Username</label>
+                                    <input type="text" name="user_pelanggan" class="form-control rounded-3" id="user_pelanggan" required>
+                                </div>
+                                <!-- password -->
+                                <div class="mb-3">
+                                    <label for="pass_pelanggan" class="form-label">Password</label>
+                                    <input type="password" name="pass_pelanggan" class="form-control rounded-3" id="pass_pelanggan" required>
+                                </div>
+                                <!-- hp -->
                                 <div class="mb-3">
                                     <label for="telepon" class="form-label">Nomor Telepon</label>
-                                    <input type="tel" class="form-control rounded-3" id="telepon" required>
+                                    <input type="tel" name="hp" class="form-control rounded-3" id="telepon" required>
                                 </div>
+                                <!-- tanggal -->
                                 <div class="mb-3">
                                     <label for="tanggal" class="form-label">Tanggal Reservasi</label>
-                                    <input type="date" class="form-control rounded-3" id="tanggal" required>
+                                    <input type="date" name="tanggal" class="form-control rounded-3" id="tanggal" required>
                                 </div>
+                                <!-- keluhan -->
                                 <div class="mb-3">
-                                    <label for="layanan" class="form-label">Pilih Layanan</label>
-                                    <select class="form-select rounded-3" id="layanan" required>
-                                        <option value="servis-rutin">Servis Rutin</option>
-                                        <option value="perbaikan-mesin">Perbaikan Mesin</option>
-                                        <option value="detailing">Detailing Mobil</option>
-                                    </select>
+                                    <label for="keluhan" class="form-label">Keluhan</label>
+                                    <textarea name="keluhan" class="form-control rounded-3" id="keluhan" required></textarea>
                                 </div>
                                 <button type="submit" class="btn btn-primary w-100 rounded-3">Kirim Reservasi</button>
+                                <p class="mt-2">
+                                    Sudah Punya Akun?
+                                    <a href="../login.php" class=" rounded-3">Login</a>
+                                </p>
                             </form>
                             <p id="reservasiStatus" class="mt-3 text-center"></p>
                         </div>
@@ -162,9 +177,8 @@
     <footer class="bg-blue-gradient text-white py-4">
         <div class="container text-center">
             <p>📞 Telepon: 0812-3456-7890</p>
-            <p>📧 Email: info@autocarecenter.com</p>
+            <p>📧 Email: info@sibengkelcenter.com</p>
             <p>📍 Alamat: Jl. Contoh No. 123, Kota Anda</p>
-            <a href="#" class="btn btn-light rounded-3">Login</a>
         </div>
     </footer>
 
