@@ -47,7 +47,24 @@ include("../dist/function/reservation_status.php");
 							<tbody>
 								<?php
 								$i = 1;
-								$sql = "SELECT * FROM reservations WHERE id_pelanggan = " . $sess_pelangganid . " ORDER BY tanggal DESC";
+								$sql = "
+									SELECT 
+										A.*,
+										B.jenis AS jenis_servis,
+										C.nama AS nama_sparepart,
+										D.nama AS nama_pelanggan
+									FROM 
+										reservations AS A
+									LEFT JOIN 
+										jasa_servis AS B ON A.id_jasa_servis = B.id
+									LEFT JOIN 
+										sparepart AS C ON A.kode_sparepart = C.kode
+									LEFT JOIN 
+										pelanggan AS D ON A.id_pelanggan = D.id_pelanggan
+									WHERE A.id_pelanggan = " . $sess_pelangganid . "
+									ORDER BY 
+										A.tanggal DESC
+								";
 								$ress = mysqli_query($conn, $sql);
 								while ($data = mysqli_fetch_array($ress)) {
 									echo '<tr>';
@@ -57,8 +74,8 @@ include("../dist/function/reservation_status.php");
 									echo '<td class="text-center">' . $data['penanganan'] . '</td>';
 									echo '<td class="text-center">' . $data['catatan'] . '</td>';
 									echo '<td class="text-center">' . $data['nopol'] . '</td>';
-									echo '<td class="text-center">' . $data['id_jasa_servis'] . '</td>';
-									echo '<td class="text-center">' . $data['kode_sparepart'] . '</td>';
+									echo '<td class="text-center">' . $data['jenis_servis'] . '</td>';
+									echo '<td class="text-center">' . $data['nama_sparepart'] . '</td>';
 									echo '<td class="text-center">' . getStatusReservation($data['status']) . '</td>';
 									echo '<td class="text-center">'; ?>
 									<a href="barang_hapus.php?brg=<?php echo $data['id']; ?>" onclick="return confirm('Apakah anda yakin akan menghapus <?php echo $data['id']; ?>?');" class="btn btn-danger btn-xs">Hapus</a></td>
