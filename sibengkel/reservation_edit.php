@@ -46,6 +46,7 @@ include("layout_top.php");
 								<label class="control-label col-sm-3">Pelanggan</label>
 								<div class="col-sm-4">
 									<select name="id_pelanggan" class="form-control" required>
+										<option value="">Pilih Pelanggan</option>
 										<?php
 										$sqlPelanggan = "SELECT * FROM pelanggan ORDER BY nama ASC";
 										$ressPelanggan = mysqli_query($conn, $sqlPelanggan);
