@@ -57,7 +57,13 @@ include("layout_top.php");
                                 <label class="control-label col-sm-3">Kendaraan</label>
                                 <div class="col-sm-4">
                                     <select name="nopol" class="form-control">
-                                        <option value="">Pilih Kendaraan</option>
+                                        <?php
+                                        if ($_GET['id_pelanggan']) {
+                                            echo "<option value=''>Pilih Kendaraan</option>";
+                                        } else {
+                                            echo "<option value=''>Pilih Pelanggan Terlebih Dahulu</option>";
+                                        }
+                                        ?>
                                         <?php
                                         $sqlKendaraan = "SELECT * FROM kendaraan WHERE id_pelanggan = " . $_GET['id_pelanggan'] . " ORDER BY nopol ASC";
                                         $ressKendaraan = mysqli_query($conn, $sqlKendaraan);
