@@ -100,85 +100,37 @@ $tahun = date("Y");
 							<h5 class="text-muted"><i class="fa fa-calendar fa-fw"></i>&nbsp;<?php echo $hari_ini . ", " . $tanggal . " " . $bulan_ini . " " . $tahun ?></h5>
 						</li>
 						<?php
+						// beranda
 						if ($pagedesc == "Beranda") {
 							echo '<li><a href="index.php" class="active"><i class="fa fa-home fa-fw"></i>&nbsp;Beranda</a></li>';
 						} else {
 							echo '<li><a href="index.php"><i class="fa fa-home fa-fw"></i>&nbsp;Beranda</a></li>';
 						}
-						if (isset($menuparent) && $menuparent == "reservation") {
-							echo '<li class="active">';
+						// reservasi
+						if ($pagedesc == "Reservation") {
+							echo '<li><a href="reservation.php" class="active"><i class="fa fa-list fa-fw"></i>&nbsp;Reservasi</a></li>';
 						} else {
-							echo '<li>';
+							echo '<li><a href="reservation.php"><i class="fa fa-list fa-fw"></i>&nbsp;Reservasi</a></li>';
 						}
-						?>
-						<!-- open <li> tag generated with php, see line 155-160 -->
-						<a href="#"><i class="fa fa-group fa-fw"></i>&nbsp;Reservasi<span class="fa arrow"></span></a>
-						<ul class="nav nav-second-level">
-							<?php
-
-							if ($pagedesc == "Reservation") {
-								echo '<li><a href="reservation.php" class="active">Daftar</a></li>';
-							} else {
-								echo '<li><a href="reservation.php">Daftar</a></li>';
-							}
-							?>
-						</ul>
-						<?php
-
-						if (isset($menuparent) && $menuparent == "karyawan") {
-							echo '<li class="active">';
+						// karyawan
+						if ($pagedesc == "Data Karyawan") {
+							echo '<li><a href="kasir.php" class="active"><i class="fa fa-user-md fa-fw"></i>&nbsp;Data Karyawan</a></li>';
 						} else {
-							echo '<li>';
+							echo '<li><a href="kasir.php"><i class="fa fa-user-md fa-fw"></i>&nbsp;Data Karyawan</a></li>';
 						}
-						?>
-						<!-- open <li> tag generated with php, see line 155-160 -->
-						<a href="#"><i class="fa fa-group fa-fw"></i>&nbsp;Data Karyawan<span class="fa arrow"></span></a>
-						<ul class="nav nav-second-level">
-							<?php
-							if ($pagedesc == "Data Karyawan") {
-								echo '<li><a href="kasir.php" class="active">Data Karyawan</a></li>';
-							} else {
-								echo '<li><a href="kasir.php">Data Karyawan</a></li>';
-							}
-							?>
-						</ul><!-- /.nav-second-level -->
-						<?php
-						if (isset($menuparent) && $menuparent == "konsumen") {
-							echo '<li class="active">';
+						// pelanggan
+						if ($pagedesc == "Data Pelanggan") {
+							echo '<li><a href="konsumen.php" class="active"><i class="fa fa-users fa-fw"></i>&nbsp;Data Pelanggan</a></li>';
 						} else {
-							echo '<li>';
+							echo '<li><a href="konsumen.php"><i class="fa fa-users fa-fw"></i>&nbsp;Data Pelanggan</a></li>';
 						}
-						?>
-						<!-- open <li> tag generated with php, see line 155-160 -->
-						<a href="#"><i class="fa fa-group fa-fw"></i>&nbsp;Data Pelanggan<span class="fa arrow"></span></a>
-						<ul class="nav nav-second-level">
-							<?php
-							if ($pagedesc == "Data Konsumen") {
-								echo '<li><a href="konsumen.php" class="active">Data Pelanggan</a></li>';
-							} else {
-								echo '<li><a href="konsumen.php">Data Pelanggan</a></li>';
-							}
-							?>
-						</ul><!-- /.nav-second-level -->
-						<?php
-						if (isset($menuparent) && $menuparent == "kendaraan") {
-							echo '<li class="active">';
+						// kendaraan
+						if ($pagedesc == "Data Kendaraan") {
+							echo '<li><a href="kendaraan.php" class="active"><i class="fa fa-car fa-fw"></i>&nbsp;Data Kendaraan</a></li>';
 						} else {
-							echo '<li>';
+							echo '<li><a href="kendaraan.php"><i class="fa fa-car fa-fw"></i>&nbsp;Data Kendaraan</a></li>';
 						}
-						?>
-						<!-- open <li> tag generated with php, see line 155-160 -->
-						<a href="#"><i class="fa fa-group fa-fw"></i>&nbsp;Data Kendaraan<span class="fa arrow"></span></a>
-						<ul class="nav nav-second-level">
-							<?php
-							if ($pagedesc == "Data Kendaraan") {
-								echo '<li><a href="kendaraan.php" class="active">Data Kendaraan</a></li>';
-							} else {
-								echo '<li><a href="kendaraan.php">Data Kendaraan</a></li>';
-							}
-							?>
-						</ul><!-- /.nav-second-level -->
-						<?php
+						// barang
 						if (isset($menuparent) && $menuparent == "barang") {
 							echo '<li class="active">';
 						} else {
