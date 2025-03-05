@@ -76,7 +76,7 @@ $pagetitle = str_replace(" ", "_", $pagedesc)
 					<tr>
 						<th width="1%">No</th>
 						<th width="10%">Nama</th>
-						<th width="5%">Stok</th>
+						<th width="5%">Jumlah</th>
 					</tr>
 				</thead>
 				<tbody>

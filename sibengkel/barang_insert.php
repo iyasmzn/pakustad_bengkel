@@ -2,11 +2,11 @@
 include("sess_check.php");
 
 $id = $sess_admid;
+$kode = $_POST['kode'];
 $nama = $_POST['nama'];
 $harga = $_POST['harga'];
-$keterangan = $_POST['keterangan'];
-$jns = "barang";
-$jumlah = "0";
+// $keterangan = $_POST['keterangan'];
+$jumlah = $_POST['jumlah'];
 
 $sql = "INSERT INTO sparepart(nama,jumlah,harga,kode)
 		  VALUES('$nama','$jumlah','$harga','$kode')";

@@ -32,21 +32,23 @@ include("dist/function/format_rupiah.php");
 							<thead>
 								<tr>
 									<th width="1%">No</th>
+									<th width="10%">Kode</th>
 									<th width="10%">Nama</th>
 									<th width="5%">Stok</th>
 									<th width="10%">Harga</th>
-									<th width="10%">Keterangan</th>
+									<!-- <th width="10%">Keterangan</th> -->
 									<th width="10%">Opsi</th>
 								</tr>
 							</thead>
 							<tbody>
 								<?php
 								$i = 1;
-								$sql = "SELECT * FROM sparepart WHERE jenis='barang' ORDER BY nama ASC";
+								$sql = "SELECT * FROM sparepart ORDER BY nama ASC";
 								$ress = mysqli_query($conn, $sql);
 								while ($data = mysqli_fetch_array($ress)) {
 									echo '<tr>';
 									echo '<td class="text-center">' . $i . '</td>';
+									echo '<td class="text-center">' . $data['kode'] . '</td>';
 									echo '<td class="text-center">' . $data['nama'] . '</td>';
 									echo '<td class="text-center">' . $data['jumlah'] . '</td>';
 									echo '<td class="text-center">' . format_rupiah($data['harga']) . '</td>';

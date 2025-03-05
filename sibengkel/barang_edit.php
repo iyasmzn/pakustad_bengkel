@@ -2,7 +2,7 @@
 include("sess_check.php");
 
 if (isset($_GET['brg'])) {
-	$sql = "SELECT * FROM sparepart WHERE id_brg='" . $_GET['brg'] . "'";
+	$sql = "SELECT * FROM sparepart WHERE kode='" . $_GET['brg'] . "'";
 	$ress = mysqli_query($conn, $sql);
 	$data = mysqli_fetch_array($ress);
 }
@@ -37,7 +37,13 @@ include("layout_top.php");
 								<label class="control-label col-sm-3">Nama</label>
 								<div class="col-sm-4">
 									<input type="text" name="nama" class="form-control" placeholder="Nama" value="<?php echo $data['nama'] ?>" required>
-									<input type="hidden" name="id" class="form-control" placeholder="Nama" value="<?php echo $data['id_brg'] ?>" required>
+									<input type="hidden" name="kode" class="form-control" placeholder="Nama" value="<?php echo $data['kode'] ?>" required>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-3">Jumlah</label>
+								<div class="col-sm-4">
+									<input type="number" name="jumlah" min="0" class="form-control" placeholder="Jumlah" value="<?php echo $data['jumlah'] ?>" required>
 								</div>
 							</div>
 							<div class="form-group">
