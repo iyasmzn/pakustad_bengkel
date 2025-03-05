@@ -219,15 +219,15 @@ $tahun = date("Y");
 						<ul class="nav nav-second-level">
 							<?php
 							if ($pagedesc == "Laporan Transaksi") {
-								echo '<li><a href="laporan_trx.php" class="active">Laporan Transaksi</a></li>';
+								echo '<li><a href="laporan_trx.php" class="active">Laporan Data</a></li>';
 							} else {
-								echo '<li><a href="laporan_trx.php">Laporan Transaksi</a></li>';
+								echo '<li><a href="laporan_trx.php">Laporan Data</a></li>';
 							}
-							if ($pagedesc == "Laporan Barang") {
-								echo '<li><a href="laporan_brg.php" class="active">Laporan Barang</a></li>';
-							} else {
-								echo '<li><a href="laporan_brg.php">Laporan Barang</a></li>';
-							}
+							// if ($pagedesc == "Laporan Barang") {
+							// 	echo '<li><a href="laporan_brg.php" class="active">Laporan Barang</a></li>';
+							// } else {
+							// 	echo '<li><a href="laporan_brg.php">Laporan Barang</a></li>';
+							// }
 							?>
 						</ul><!-- /.nav-second-level -->
 						</li>
