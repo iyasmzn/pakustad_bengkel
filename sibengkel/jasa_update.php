@@ -18,6 +18,6 @@ if (isset($_POST['perbarui'])) {
 	} else {
 		echo ("Error description: " . mysqli_error($conn));
 		echo "<script>alert('Ops, terjadi kesalahan. Silahkan coba lagi.');</script>";
-		// echo "<script type='text/javascript'> document.location = 'jasa.php'; </script>";
+		echo "<script type='text/javascript'> document.location = 'jasa.php'; </script>";
 	}
 }
