@@ -4,12 +4,17 @@ include("dist/function/format_rupiah.php");
 
 $tgl = date('Y-m-d');
 $ttl = 0;
-$sql = "SELECT * FROM reservations WHERE tanggal='$tgl'";
+$sql = "SELECT reservations.*, sparepart.harga as harga_sparepart, jasa_servis.harga as harga_jasa FROM reservations 
+    LEFT JOIN sparepart ON sparepart.kode=reservations.kode_sparepart
+    LEFT JOIN jasa_servis ON jasa_servis.id=reservations.id_jasa_servis
+WHERE tanggal='$tgl'";
 $ress = mysqli_query($conn, $sql);
 $jmltrx = mysqli_num_rows($ress);
 // query database mencari data admin
 while ($data = mysqli_fetch_array($ress)) {
-    $tot = $data['total'] ?? 0;
+    $sparepart = $data['harga_sparepart'] ?? 0;
+    $jasa = $data['harga_jasa'] ?? 0;
+    $tot = $sparepart + $jasa;
     $ttl += $tot;
 }
 // deskripsi halaman
