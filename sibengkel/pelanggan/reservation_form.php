@@ -12,7 +12,7 @@ include("layout_top.php");
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Reservasi</h1>
+                <h1 class="page-header">Buat Reservasi</h1>
             </div><!-- /.col-lg-12 -->
         </div><!-- /.row -->
 
@@ -32,6 +32,22 @@ include("layout_top.php");
                                 <label class="control-label col-sm-3">Tanggal</label>
                                 <div class="col-sm-4">
                                     <input type="date" name="tanggal" class="form-control" placeholder="Tanggal" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-3">Kendaraan</label>
+                                <div class="col-sm-4">
+                                    <select name="nopol" class="form-control">
+                                        <option value="">Pilih Kendaraan</option>
+                                        <?php
+                                        $sqlKendaraan = "SELECT * FROM kendaraan WHERE id_pelanggan=" . $sess_pelangganid . " ORDER BY nopol ASC";
+                                        $ressKendaraan = mysqli_query($conn, $sqlKendaraan);
+
+                                        while ($dataKendaraan = mysqli_fetch_array($ressKendaraan)) {
+                                            echo "<option value='" . $dataKendaraan['nopol'] . "'>" . $dataKendaraan['nopol'] . ' - ' . $dataKendaraan['merk'] . ' '  . $dataKendaraan['tipe']  . "</option>";
+                                        }
+                                        ?>
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group">

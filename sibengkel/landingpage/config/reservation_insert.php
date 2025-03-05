@@ -1,5 +1,5 @@
 <?php
-include('./connect.php');
+include('../../dist/config/koneksi.php');
 // create user
 $nama = mysqli_real_escape_string($conn, $_POST['nama']);
 $hp = mysqli_real_escape_string($conn, $_POST['hp']);

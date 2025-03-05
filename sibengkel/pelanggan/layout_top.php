@@ -117,9 +117,9 @@ $tahun = date("Y");
 						<ul class="nav nav-second-level">
 							<?php
 							if ($pagedesc == "Reservasi") {
-								echo '<li><a href="reservation_form.php" class="active">Reservasi</a></li>';
+								echo '<li><a href="reservation_form.php" class="active">Buat Reservasi</a></li>';
 							} else {
-								echo '<li><a href="reservation_form.php">Reservasi</a></li>';
+								echo '<li><a href="reservation_form.php">Buat Reservasi</a></li>';
 							}
 
 							if ($pagedesc == "Riwayat") {
