@@ -27,28 +27,29 @@ include("layout_top.php");
                             <h3>Tambah Data</h3>
                         </div>
                         <div class="panel-body">
-                            <!-- Tanggal -->
-                            <div class="form-group">
-                                <label class="control-label col-sm-3">Tanggal</label>
-                                <div class="col-sm-4">
-                                    <input type="date" name="tanggal" class="form-control" placeholder="Tanggal" required>
-                                </div>
-                            </div>
                             <!-- Pelanggan -->
                             <div class="form-group">
                                 <label class="control-label col-sm-3">Pelanggan</label>
                                 <div class="col-sm-4">
-                                    <select name="id_pelanggan" class="form-control" required>
+                                    <select id="input-id_pelanggan" name="id_pelanggan" class="form-control" required>
                                         <option value="">Pilih Pelanggan</option>
                                         <?php
                                         $sqlPelanggan = "SELECT * FROM pelanggan ORDER BY nama ASC";
                                         $ressPelanggan = mysqli_query($conn, $sqlPelanggan);
 
                                         while ($dataPelanggan = mysqli_fetch_array($ressPelanggan)) {
-                                            echo "<option value='" . $dataPelanggan['id_pelanggan'] . "'>" . $dataPelanggan['nama'] . "</option>";
+                                            $selectedPelanggan = ($dataPelanggan['id_pelanggan'] == $_GET['id_pelanggan']) ? 'selected' : '';
+                                            echo "<option value='" . $dataPelanggan['id_pelanggan'] . "' $selectedPelanggan >" . $dataPelanggan['nama'] . "</option>";
                                         }
                                         ?>
                                     </select>
+                                </div>
+                            </div>
+                            <!-- Tanggal -->
+                            <div class="form-group">
+                                <label class="control-label col-sm-3">Tanggal</label>
+                                <div class="col-sm-4">
+                                    <input type="date" name="tanggal" class="form-control" placeholder="Tanggal" required>
                                 </div>
                             </div>
                             <!-- Kendaraan -->
@@ -58,7 +59,7 @@ include("layout_top.php");
                                     <select name="nopol" class="form-control">
                                         <option value="">Pilih Kendaraan</option>
                                         <?php
-                                        $sqlKendaraan = "SELECT * FROM kendaraan ORDER BY nopol ASC";
+                                        $sqlKendaraan = "SELECT * FROM kendaraan WHERE id_pelanggan = " . $_GET['id_pelanggan'] . " ORDER BY nopol ASC";
                                         $ressKendaraan = mysqli_query($conn, $sqlKendaraan);
 
                                         while ($dataKendaraan = mysqli_fetch_array($ressKendaraan)) {
@@ -145,6 +146,20 @@ include("layout_top.php");
     </div><!-- /.container-fluid -->
 </div><!-- /#page-wrapper -->
 <!-- bottom of file -->
+
+<script>
+    $('document').ready(function() {
+        $('#input-id_pelanggan').on('change', function() {
+            if (isNaN(this.value))
+                return;
+            else {
+                let url = new URL(window.location.href);
+                url.searchParams.set('id_pelanggan', this.value);
+                window.location.href = url.href;
+            }
+        });
+    })
+</script>
 <?php
 include("layout_bottom.php");
 ?>
