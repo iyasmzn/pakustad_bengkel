@@ -34,7 +34,6 @@ include("dist/function/format_rupiah.php");
 									<th width="1%">No</th>
 									<th width="10%">Nama</th>
 									<th width="10%">Harga</th>
-									<th width="10%">Keterangan</th>
 									<th width="10%">Opsi</th>
 								</tr>
 							</thead>
@@ -48,7 +47,6 @@ include("dist/function/format_rupiah.php");
 									echo '<td class="text-center">' . $i . '</td>';
 									echo '<td class="text-center">' . $data['jenis'] . '</td>';
 									echo '<td class="text-center">' . format_rupiah($data['harga']) . '</td>';
-									echo '<td class="text-center"></td>';
 									echo '<td class="text-center">
 													  <a href="jasa_edit.php?js=' . $data['id'] . '" class="btn btn-warning btn-xs">Edit</a>'; ?>
 									<a href="jasa_hapus.php?js=<?php echo $data['id']; ?>" onclick="return confirm('Apakah anda yakin akan menghapus <?php echo $data['jenis']; ?>?');" class="btn btn-danger btn-xs">Hapus</a></td>
@@ -84,7 +82,7 @@ include("dist/function/format_rupiah.php");
 			"processing": true,
 			"columnDefs": [{
 				"orderable": false,
-				"targets": [4]
+				"targets": [3]
 			}]
 		});
 
