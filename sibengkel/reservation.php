@@ -26,7 +26,7 @@ include("dist/function/reservation_status.php");
 			<div class="col-lg-12">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<a href="reservation_form.php" class="btn btn-success">Reservasi</a>
+						<a href="reservation_form.php" class="btn btn-success">Tambah</a>
 					</div>
 					<div class="panel-body">
 						<table class="table table-striped table-bordered table-hover" id="tabel-data">

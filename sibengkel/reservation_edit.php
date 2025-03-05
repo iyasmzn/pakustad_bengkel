@@ -60,23 +60,27 @@ include("layout_top.php");
 								</div>
 							</div>
 							<!-- Kendaraan -->
-							<div class="form-group">
-								<label class="control-label col-sm-3">Kendaraan</label>
-								<div class="col-sm-4">
-									<select name="nopol" class="form-control">
-										<option value="">Pilih Kendaraan</option>
-										<?php
-										$sqlKendaraan = "SELECT * FROM kendaraan ORDER BY nopol ASC";
-										$ressKendaraan = mysqli_query($conn, $sqlKendaraan);
+							<?php
+							if ($data['id_pelanggan']) {
+							?>
+								<div class="form-group">
+									<label class="control-label col-sm-3">Kendaraan</label>
+									<div class="col-sm-4">
+										<select name="nopol" class="form-control">
+											<option value="">Pilih Kendaraan</option>
+											<?php
+											$sqlKendaraan = "SELECT * FROM kendaraan WHERE id_pelanggan=" . $data['id_pelanggan'] . " ORDER BY nopol ASC";
+											$ressKendaraan = mysqli_query($conn, $sqlKendaraan);
 
-										while ($dataKendaraan = mysqli_fetch_array($ressKendaraan)) {
-											$selectedKendaraan = ($dataKendaraan['nopol'] == $data['nopol']) ? 'selected' : '';
-											echo "<option value='" . $dataKendaraan['nopol'] . "' $selectedKendaraan>" . $dataKendaraan['nopol'] . ' - ' . $dataKendaraan['merk'] . ' '  . $dataKendaraan['tipe']  . "</option>";
-										}
-										?>
-									</select>
+											while ($dataKendaraan = mysqli_fetch_array($ressKendaraan)) {
+												$selectedKendaraan = ($dataKendaraan['nopol'] == $data['nopol']) ? 'selected' : '';
+												echo "<option value='" . $dataKendaraan['nopol'] . "' $selectedKendaraan>" . $dataKendaraan['nopol'] . ' - ' . $dataKendaraan['merk'] . ' '  . $dataKendaraan['tipe']  . "</option>";
+											}
+											?>
+										</select>
+									</div>
 								</div>
-							</div>
+							<?php } ?>
 							<!-- Keluhan -->
 							<div class="form-group">
 								<label class="control-label col-sm-3">Keluhan</label>
