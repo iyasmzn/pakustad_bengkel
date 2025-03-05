@@ -9,7 +9,7 @@ $ress = mysqli_query($conn, $sql);
 $jmltrx = mysqli_num_rows($ress);
 // query database mencari data admin
 while ($data = mysqli_fetch_array($ress)) {
-    $tot = $data['total'];
+    $tot = $data['total'] ?? 0;
     $ttl += $tot;
 }
 // deskripsi halaman
