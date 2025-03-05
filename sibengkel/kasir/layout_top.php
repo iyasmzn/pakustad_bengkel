@@ -105,41 +105,19 @@ $tahun = date("Y");
 						} else {
 							echo '<li><a href="index.php"><i class="fa fa-home fa-fw"></i>&nbsp;Beranda</a></li>';
 						}
-						if (isset($menuparent) && $menuparent == "konsumen") {
-							echo '<li class="active">';
+						// pelanggan
+						if ($pagedesc == "Data Pelanggan") {
+							echo '<li><a href="konsumen.php" class="active"><i class="fa fa-users fa-fw"></i>&nbsp;Data Pelanggan</a></li>';
 						} else {
-							echo '<li>';
+							echo '<li><a href="konsumen.php"><i class="fa fa-users fa-fw"></i>&nbsp;Data Pelanggan</a></li>';
+						}
+						// kendaraan
+						if ($pagedesc == "Data Kendaraan") {
+							echo '<li><a href="kendaraan.php" class="active"><i class="fa fa-car fa-fw"></i>&nbsp;Data Kendaraan</a></li>';
+						} else {
+							echo '<li><a href="kendaraan.php"><i class="fa fa-car fa-fw"></i>&nbsp;Data Kendaraan</a></li>';
 						}
 						?>
-						<!-- open <li> tag generated with php, see line 155-160 -->
-						<a href="#"><i class="fa fa-group fa-fw"></i>&nbsp;Data Pelanggan<span class="fa arrow"></span></a>
-						<ul class="nav nav-second-level">
-							<?php
-							if ($pagedesc == "Data Konsumen") {
-								echo '<li><a href="konsumen.php" class="active">Data Pelanggan</a></li>';
-							} else {
-								echo '<li><a href="konsumen.php">Data Pelanggan</a></li>';
-							}
-							?>
-						</ul><!-- /.nav-second-level -->
-						<?php
-						if (isset($menuparent) && $menuparent == "kendaraan") {
-							echo '<li class="active">';
-						} else {
-							echo '<li>';
-						}
-						?>
-						<!-- open <li> tag generated with php, see line 155-160 -->
-						<a href="#"><i class="fa fa-group fa-fw"></i>&nbsp;Data Kendaraan<span class="fa arrow"></span></a>
-						<ul class="nav nav-second-level">
-							<?php
-							if ($pagedesc == "Data Kendaraan") {
-								echo '<li><a href="kendaraan.php" class="active">Data Kendaraan</a></li>';
-							} else {
-								echo '<li><a href="kendaraan.php">Data Kendaraan</a></li>';
-							}
-							?>
-						</ul><!-- /.nav-second-level -->
 						<?php
 						if (isset($menuparent) && $menuparent == "jasa_servis") {
 							echo '<li class="active">';
@@ -148,7 +126,7 @@ $tahun = date("Y");
 						}
 						?>
 						<!-- open <li> tag generated with php, see line 155-160 -->
-						<a href="#"><i class="fa fa-group fa-fw"></i>&nbsp;Jasa Servis<span class="fa arrow"></span></a>
+						<a href="#"><i class="fa fa-wrench fa-fw"></i>&nbsp;Jasa Servis<span class="fa arrow"></span></a>
 						<ul class="nav nav-second-level">
 							<?php
 							if ($pagedesc == "Jasa Servis") {

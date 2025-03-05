@@ -4,12 +4,12 @@ include("dist/function/format_rupiah.php");
 
 $tgl = date('Y-m-d');
 $ttl = 0;
-$sql = "SELECT * FROM reservations WHERE tanggal='$tgl'";
+$sql = "SELECT * FROM reservations WHERE tanggal='$tgl' AND id_karyawan = '$sess_kasirid'";
 $ress = mysqli_query($conn, $sql);
 $jmltrx = mysqli_num_rows($ress);
 // query database mencari data admin
 while ($data = mysqli_fetch_array($ress)) {
-	$tot = $data['total'];
+	$tot = $data['total'] ?? 0;
 	$ttl += $tot;
 }
 // deskripsi halaman
@@ -42,7 +42,7 @@ include("layout_top.php");
 							</div>
 						</div>
 					</div>
-					<a href="trx.php">
+					<a href="reservation.php">
 						<div class="panel-footer">
 							<span class="pull-left">Lihat Rincian</span>
 							<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -67,7 +67,7 @@ include("layout_top.php");
 							</div>
 						</div>
 					</div>
-					<a href="trx.php">
+					<a href="reservation.php">
 						<div class="panel-footer">
 							<span class="pull-left">Lihat Rincian</span>
 							<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
