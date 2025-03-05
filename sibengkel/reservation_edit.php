@@ -45,14 +45,15 @@ include("layout_top.php");
 							<div class="form-group">
 								<label class="control-label col-sm-3">Pelanggan</label>
 								<div class="col-sm-4">
-									<select name="id_pelanggan" class="form-control" required>
+									<select id="input-id_pelanggan" name="id_pelanggan" class="form-control" required>
 										<option value="">Pilih Pelanggan</option>
 										<?php
 										$sqlPelanggan = "SELECT * FROM pelanggan ORDER BY nama ASC";
 										$ressPelanggan = mysqli_query($conn, $sqlPelanggan);
 
 										while ($dataPelanggan = mysqli_fetch_array($ressPelanggan)) {
-											$selectedPelanggan = ($dataPelanggan['id_pelanggan'] == $data['id_pelanggan']) ? 'selected' : '';
+											$selectedPdata = $_GET['id_pelanggan'] ?? $data['id_pelanggan'];
+											$selectedPelanggan = ($dataPelanggan['id_pelanggan'] == $selectedPdata) ? 'selected' : '';
 											echo "<option value='" . $dataPelanggan['id_pelanggan'] . "' $selectedPelanggan>" . $dataPelanggan['nama'] . "</option>";
 										}
 										?>
@@ -61,7 +62,7 @@ include("layout_top.php");
 							</div>
 							<!-- Kendaraan -->
 							<?php
-							if ($data['id_pelanggan']) {
+							if ($selectedPdata) {
 							?>
 								<div class="form-group">
 									<label class="control-label col-sm-3">Kendaraan</label>
@@ -69,7 +70,7 @@ include("layout_top.php");
 										<select name="nopol" class="form-control">
 											<option value="">Pilih Kendaraan</option>
 											<?php
-											$sqlKendaraan = "SELECT * FROM kendaraan WHERE id_pelanggan=" . $data['id_pelanggan'] . " ORDER BY nopol ASC";
+											$sqlKendaraan = "SELECT * FROM kendaraan WHERE id_pelanggan=" . $selectedPdata . " ORDER BY nopol ASC";
 											$ressKendaraan = mysqli_query($conn, $sqlKendaraan);
 
 											while ($dataKendaraan = mysqli_fetch_array($ressKendaraan)) {
@@ -160,6 +161,20 @@ include("layout_top.php");
 	</div><!-- /.container-fluid -->
 </div><!-- /#page-wrapper -->
 <!-- bottom of file -->
+
+<script>
+	$('document').ready(function() {
+		$('#input-id_pelanggan').on('change', function() {
+			if (isNaN(this.value))
+				return;
+			else {
+				let url = new URL(window.location.href);
+				url.searchParams.set('id_pelanggan', this.value);
+				window.location.href = url.href;
+			}
+		});
+	})
+</script>
 <?php
 include("layout_bottom.php");
 ?>
