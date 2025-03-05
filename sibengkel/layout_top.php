@@ -106,24 +106,6 @@ $tahun = date("Y");
 							echo '<li><a href="index.php"><i class="fa fa-home fa-fw"></i>&nbsp;Beranda</a></li>';
 						}
 
-						if (isset($menuparent) && $menuparent == "supplier") {
-							echo '<li class="active">';
-						} else {
-							echo '<li>';
-						}
-						?>
-						<!-- open <li> tag generated with php, see line 155-160 -->
-						<a href="#"><i class="fa fa-chain fa-fw"></i>&nbsp;Data Supplier<span class="fa arrow"></span></a>
-						<ul class="nav nav-second-level">
-							<?php
-							if ($pagedesc == "Data Supplier") {
-								echo '<li><a href="supplier.php" class="active">Data Supplier</a></li>';
-							} else {
-								echo '<li><a href="supplier.php">Data Supplier</a></li>';
-							}
-							?>
-						</ul><!-- /.nav-second-level -->
-						<?php
 						if (isset($menuparent) && $menuparent == "kasir") {
 							echo '<li class="active">';
 						} else {
