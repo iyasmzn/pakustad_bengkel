@@ -47,7 +47,7 @@ include("layout_top.php");
                             </div>
                         </div>
                     </div>
-                    <a href="trx.php">
+                    <a href="reservation.php">
                         <div class="panel-footer">
                             <span class="pull-left">Lihat Rincian</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -72,7 +72,7 @@ include("layout_top.php");
                             </div>
                         </div>
                     </div>
-                    <a href="trx.php">
+                    <a href="reservation.php">
                         <div class="panel-footer">
                             <span class="pull-left">Lihat Rincian</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
