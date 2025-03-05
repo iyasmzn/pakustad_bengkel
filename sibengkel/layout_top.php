@@ -208,25 +208,6 @@ $tahun = date("Y");
 							?>
 						</ul><!-- /.nav-second-level -->
 						<?php
-						if (isset($menuparent) && $menuparent == "transaksi") {
-							echo '<li class="active">';
-						} else {
-							echo '<li>';
-						}
-						?>
-						<!-- open <li> tag generated with php, see line 134-139 -->
-						<a href="#"><i class="fa fa-gear fa-fw"></i>&nbsp;Transaksi<span class="fa arrow"></span></a>
-						<ul class="nav nav-second-level">
-							<?php
-							if ($pagedesc == "Data Transaksi") {
-								echo '<li><a href="trx.php" class="active">Data Transaksi</a></li>';
-							} else {
-								echo '<li><a href="trx.php">Data Transaksi</a></li>';
-							}
-							?>
-						</ul><!-- /.nav-second-level -->
-						</li>
-						<?php
 						if (isset($menuparent) && $menuparent == "laporan") {
 							echo '<li class="active">';
 						} else {
