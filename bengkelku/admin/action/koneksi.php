@@ -1,8 +1,7 @@
 <?php
-	$host="localhost";
-	$user="dayaksto_tegar";
-	$password="admintegar";
-	$db="dayaksto_DB_Bengkel";
-	
-	$koneksi=mysqli_connect($host,$user,$password,$db);
-?>
+$host = "localhost";
+$user = "dayaksto_tegar";
+$password = "admintegar";
+$db = "pakustad_bengkelku";
+
+$koneksi = mysqli_connect($host, $user, $password, $db);

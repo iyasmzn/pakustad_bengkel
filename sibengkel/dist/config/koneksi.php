@@ -6,4 +6,7 @@ $dbuser = "root";
 $dbpass = "";
 $dbname = "pakustad_sibengkel";
 
-$conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname) or die("Tidak dapat terhubung ke database: " . mysqli_error());
+$conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
+if ($conn->connect_error) {
+  die("Tidak dapat terhubung ke database: " . $conn->connect_error);
+}

@@ -1,10 +1,12 @@
 <?php
-  //error_reporting(0);
+//error_reporting(0);
 
-  $dbhost = "localhost";
-  $dbuser = "id9824304_user";
-  $dbpass = "password";
-  $dbname = "id9824304_bengkel";
+$dbhost = "localhost";
+$dbuser = "root";
+$dbpass = "";
+$dbname = "pakustad_sibengkel";
 
-  $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname) or die("Tidak dapat terhubung ke database: ".mysqli_error());
-?>
+$conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
+if ($conn->connect_error) {
+  die("Tidak dapat terhubung ke database: " . $conn->connect_error);
+}
