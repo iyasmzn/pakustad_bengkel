@@ -10,6 +10,7 @@ if (isset($_POST['perbarui']) && isset($_POST['id_reservation'])) {
 	$keluhan = $_POST['keluhan'];
 	$penanganan = $_POST['penanganan'];
 	$kode_sparepart = $_POST['kode_sparepart'];
+	$id_jasa_servis = $_POST['id_jasa_servis'];
 	$catatan = $_POST['catatan'];
 	$status = $_POST['status'];
 	$id_karyawan = $sess_admid;
@@ -20,6 +21,7 @@ if (isset($_POST['perbarui']) && isset($_POST['id_reservation'])) {
 		keluhan='" . $keluhan . "', 
 		penanganan='" . $penanganan . "', 
 		kode_sparepart='" . $kode_sparepart . "', 
+		id_jasa_servis='" . $id_jasa_servis . "',
 		catatan='" . $catatan . "', 
 		id_karyawan='" . $id_karyawan . "',
 		status='" . $status . "'
