@@ -105,6 +105,25 @@ $tahun = date("Y");
 						} else {
 							echo '<li><a href="index.php"><i class="fa fa-home fa-fw"></i>&nbsp;Beranda</a></li>';
 						}
+						if (isset($menuparent) && $menuparent == "reservation") {
+							echo '<li class="active">';
+						} else {
+							echo '<li>';
+						}
+						?>
+						<!-- open <li> tag generated with php, see line 155-160 -->
+						<a href="#"><i class="fa fa-group fa-fw"></i>&nbsp;Reservasi<span class="fa arrow"></span></a>
+						<ul class="nav nav-second-level">
+							<?php
+
+							if ($pagedesc == "Reservation") {
+								echo '<li><a href="reservation.php" class="active">Daftar</a></li>';
+							} else {
+								echo '<li><a href="reservation.php">Daftar</a></li>';
+							}
+							?>
+						</ul>
+						<?php
 
 						if (isset($menuparent) && $menuparent == "karyawan") {
 							echo '<li class="active">';
