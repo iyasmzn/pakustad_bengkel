@@ -100,7 +100,7 @@ include("layout_top.php");
 							<div class="form-group">
 								<label class="control-label col-sm-3">Jasa Servis</label>
 								<div class="col-sm-4">
-									<select name="id_jasa_servis" class="form-control">
+									<select name="id_jasa_servis" class="form-control" required>
 										<option value="">Pilih Jasa</option>
 										<?php
 										$sqlJasa = "SELECT * FROM jasa_servis ORDER BY jenis ASC";
