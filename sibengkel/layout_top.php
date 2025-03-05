@@ -106,7 +106,7 @@ $tahun = date("Y");
 							echo '<li><a href="index.php"><i class="fa fa-home fa-fw"></i>&nbsp;Beranda</a></li>';
 						}
 
-						if (isset($menuparent) && $menuparent == "kasir") {
+						if (isset($menuparent) && $menuparent == "karyawan") {
 							echo '<li class="active">';
 						} else {
 							echo '<li>';
@@ -116,7 +116,7 @@ $tahun = date("Y");
 						<a href="#"><i class="fa fa-group fa-fw"></i>&nbsp;Data Karyawan<span class="fa arrow"></span></a>
 						<ul class="nav nav-second-level">
 							<?php
-							if ($pagedesc == "Data Kasir") {
+							if ($pagedesc == "Data Karyawan") {
 								echo '<li><a href="kasir.php" class="active">Data Karyawan</a></li>';
 							} else {
 								echo '<li><a href="kasir.php">Data Karyawan</a></li>';
