@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `admin` (
   PRIMARY KEY (`id_adm`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
--- Dumping data for table sibengkel.admin: ~0 rows (approximately)
+-- Dumping data for table sibengkel.admin: ~1 rows (approximately)
 INSERT INTO `admin` (`id_adm`, `nama_adm`, `telp_adm`, `user_adm`, `pass_adm`, `foto_adm`) VALUES
 	(1, 'Administrator', '08962878534', 'admin', 'admin', 'user.jpg');
 
@@ -64,7 +64,7 @@ CREATE TABLE IF NOT EXISTS `jasa_servis` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table sibengkel.jasa_servis: ~6 rows (approximately)
+-- Dumping data for table sibengkel.jasa_servis: ~2 rows (approximately)
 INSERT INTO `jasa_servis` (`id`, `jenis`, `harga`) VALUES
 	(7, 'asd22', 123),
 	(8, 'asd2', 213123);
@@ -83,7 +83,7 @@ CREATE TABLE IF NOT EXISTS `karyawan` (
   PRIMARY KEY (`id_karyawan`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table sibengkel.karyawan: ~0 rows (approximately)
+-- Dumping data for table sibengkel.karyawan: ~2 rows (approximately)
 INSERT INTO `karyawan` (`id_karyawan`, `nama_karyawan`, `telp_karyawan`, `alamat_karyawan`, `user_karyawan`, `pass_karyawan`, `foto_karyawan`, `id_adm`) VALUES
 	(1, 'kasir 1', '081320129088', 'Jl. Kenangan no 90', 'kasir_1', 'password', '02252025090336i.png', 1),
 	(2, 'asds', '09999999', 'asdadsad', 'tet', 'apala', '03062025074521b.jpg', 1);
@@ -101,7 +101,7 @@ CREATE TABLE IF NOT EXISTS `kasir` (
   PRIMARY KEY (`id_kasir`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
--- Dumping data for table sibengkel.kasir: ~0 rows (approximately)
+-- Dumping data for table sibengkel.kasir: ~1 rows (approximately)
 INSERT INTO `kasir` (`id_kasir`, `nama_kasir`, `telp_kasir`, `user_kasir`, `pass_kasir`, `foto_kasir`, `id_adm`) VALUES
 	(1, 'Test Kasir', '0210181928', 'kasir', 'password', '06062019071454r.jpg', 1);
 
@@ -121,7 +121,7 @@ CREATE TABLE IF NOT EXISTS `kendaraan` (
   UNIQUE KEY `nopol` (`nopol`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table sibengkel.kendaraan: ~2 rows (approximately)
+-- Dumping data for table sibengkel.kendaraan: ~4 rows (approximately)
 INSERT INTO `kendaraan` (`id_kendaraan`, `nopol`, `merk`, `tipe`, `transmisi`, `kapasitas`, `tahun`, `ktp_pelanggan`, `id_pelanggan`) VALUES
 	(1, 'H2398TR', 'Honda', 'Vario', 'Matic', 125, 2019, '3374061507960009', 1),
 	(3, 'H9023YU', 'Honda', 'Beat', 'Matic', 110, 2019, '3374061806920007', 2),
@@ -157,7 +157,7 @@ CREATE TABLE IF NOT EXISTS `pelanggan` (
   PRIMARY KEY (`id_pelanggan`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table sibengkel.pelanggan: ~2 rows (approximately)
+-- Dumping data for table sibengkel.pelanggan: ~9 rows (approximately)
 INSERT INTO `pelanggan` (`id_pelanggan`, `nama`, `alamat`, `hp`, `ktp`, `user_pelanggan`, `pass_pelanggan`, `foto_pelanggan`) VALUES
 	(1, 'Gita Maria', 'Jl Bulan Purnama no 9', '081325334455', '3374061507960009', 'gita', '123456', 'manglid.jpg'),
 	(2, 'nayaka', 'Jl rambutan no 7', '081324782345', '3374061806920007', '0', '0', ''),
@@ -188,24 +188,26 @@ CREATE TABLE IF NOT EXISTS `reservations` (
   UNIQUE KEY `kode` (`id_trx`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table sibengkel.reservations: ~0 rows (approximately)
+-- Dumping data for table sibengkel.reservations: ~1 rows (approximately)
 INSERT INTO `reservations` (`id_reservation`, `tanggal`, `keluhan`, `penanganan`, `catatan`, `id_karyawan`, `nopol`, `id_jasa_servis`, `id_pelanggan`, `status`, `kode_sparepart`, `id_trx`) VALUES
-	(1, '2025-03-07', 'asd', 'asd', 'asd', 1, '', 8, 6, 0, 'asd', '2fc787725c');
+	(1, '2025-03-07', 'asd', 'asd', 'asd', 1, '', 8, 6, 0, 'K001', '2fc787725c');
 
 -- Dumping structure for table sibengkel.sparepart
 DROP TABLE IF EXISTS `sparepart`;
 CREATE TABLE IF NOT EXISTS `sparepart` (
+  `id` int NOT NULL AUTO_INCREMENT,
   `kode` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `nama` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `jumlah` float NOT NULL DEFAULT '0',
   `harga` int NOT NULL DEFAULT '0',
-  PRIMARY KEY (`kode`),
+  PRIMARY KEY (`id`) USING BTREE,
   UNIQUE KEY `code` (`kode`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table sibengkel.sparepart: ~0 rows (approximately)
-INSERT INTO `sparepart` (`kode`, `nama`, `jumlah`, `harga`) VALUES
-	('asd', 'asd123', 123123, 123);
+-- Dumping data for table sibengkel.sparepart: ~2 rows (approximately)
+INSERT INTO `sparepart` (`id`, `kode`, `nama`, `jumlah`, `harga`) VALUES
+	(1, 'K001', 'Kenalpot Brong', 1000, 100000000),
+	(4, 'HV001', 'asd', 1, 1000000);
 
 -- Dumping structure for table sibengkel.supplier
 DROP TABLE IF EXISTS `supplier`;
