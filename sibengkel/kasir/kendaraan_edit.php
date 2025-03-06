@@ -70,6 +70,24 @@ include("layout_top.php");
 									<input type="number" name="tahun" min="0" class="form-control" placeholder="Tahun" value="<?php echo $data['tahun'] ?>" required>
 								</div>
 							</div>
+							<!-- Pelanggan -->
+							<div class="form-group">
+								<label class="control-label col-sm-3">Pelanggan</label>
+								<div class="col-sm-4">
+									<select name="id_pelanggan" class="form-control" required>
+										<option value="">Pilih Pelanggan</option>
+										<?php
+										$sqlPelanggan = "SELECT * FROM pelanggan ORDER BY nama ASC";
+										$ressPelanggan = mysqli_query($conn, $sqlPelanggan);
+
+										while ($dataPelanggan = mysqli_fetch_array($ressPelanggan)) {
+											$selectedPelanggan = ($dataPelanggan['id_pelanggan'] == $data['id_pelanggan']) ? 'selected' : '';
+											echo "<option value='" . $dataPelanggan['id_pelanggan'] . "' $selectedPelanggan>" . $dataPelanggan['nama'] . "</option>";
+										}
+										?>
+									</select>
+								</div>
+							</div>
 							<div class="form-group">
 								<label class="control-label col-sm-3">KTP</label>
 								<div class="col-sm-4">
