@@ -65,7 +65,7 @@ include("dist/function/format_rupiah.php");
 							</tbody>
 						</table>
 						<div class="form-group">
-							<a href="barang_stok.php" target="_blank" class="btn btn-warning">Cetak</a>
+							<!-- <a href="barang_stok.php" target="_blank" class="btn btn-warning">Cetak</a> -->
 						</div>
 					</div>
 					<!-- Large modal -->
