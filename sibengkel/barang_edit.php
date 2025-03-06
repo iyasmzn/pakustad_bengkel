@@ -17,7 +17,7 @@ include("layout_top.php");
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">Data Barang</h1>
+				<h1 class="page-header">Data Sparepart</h1>
 			</div><!-- /.col-lg-12 -->
 		</div><!-- /.row -->
 
@@ -43,7 +43,7 @@ include("layout_top.php");
 								<label class="control-label col-sm-3">Nama</label>
 								<div class="col-sm-4">
 									<input type="text" name="nama" class="form-control" placeholder="Nama" value="<?php echo $data['nama'] ?>" required>
-									<input type="hidden" name="id" class="form-control" placeholder="Nama" value="<?php echo $data['id'] ?>" required>
+									<input type="hidden" name="id" class="form-control" placeholder="Nama" value="<?php echo $data['id'] ?>">
 								</div>
 							</div>
 							<div class="form-group">
