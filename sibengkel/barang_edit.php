@@ -34,10 +34,16 @@ include("layout_top.php");
 						</div>
 						<div class="panel-body">
 							<div class="form-group">
+								<label class="control-label col-sm-3">Kode</label>
+								<div class="col-sm-4">
+									<input type="text" name="kode" class="form-control" placeholder="Kode" value="<?php echo $data['kode'] ?>" required>
+								</div>
+							</div>
+							<div class="form-group">
 								<label class="control-label col-sm-3">Nama</label>
 								<div class="col-sm-4">
 									<input type="text" name="nama" class="form-control" placeholder="Nama" value="<?php echo $data['nama'] ?>" required>
-									<input type="hidden" name="kode" class="form-control" placeholder="Nama" value="<?php echo $data['kode'] ?>" required>
+									<input type="hidden" name="id" class="form-control" placeholder="Nama" value="<?php echo $data['id'] ?>" required>
 								</div>
 							</div>
 							<div class="form-group">
