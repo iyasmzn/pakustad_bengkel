@@ -8,29 +8,52 @@ body {
   background: linear-gradient(135deg, #6a11cb, #2575fc);
 }
 
-/* Navbar Padding */
+/* Navbar Transparent */
 .navbar {
-  padding: 1rem 0;
-  position: sticky;
-  position: -webkit-sticky;
-  top: 0px;
-  z-index: 100;
+  background: transparent !important;
+  transition: background 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+/* Navbar Scrolled */
+.navbar.scrolled {
+  background: rgba(
+    37,
+    117,
+    252,
+    0.9
+  ) !important; /* Warna biru dengan transparansi */
+  backdrop-filter: blur(10px); /* Efek blur */
 }
 
 /* Carousel Styling */
-.carousel-item img {
+.carousel-item {
+  position: relative;
   height: 100vh;
+}
+
+.carousel-item img {
+  height: 100%;
+  width: 100%;
   object-fit: cover;
 }
 
+/* Overlay Hitam */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Overlay hitam dengan opacity 50% */
+}
+
 .carousel-caption {
-  background: rgba(0, 0, 0, 0.5); /* Latar belakang semi-transparan */
-  padding: 2rem;
-  border-radius: 1rem;
+  position: absolute;
   bottom: 20%;
   left: 10%;
   right: auto;
   text-align: left;
+  z-index: 10; /* Pastikan teks di atas overlay */
 }
 
 .carousel-caption h1 {
