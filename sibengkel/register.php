@@ -1,6 +1,7 @@
 <?php $pagedesc = "Register"; ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,7 +22,7 @@
 
 	<!-- Custom Fonts -->
 	<link href="libs/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-	
+
 	<!-- jQuery -->
 	<script src="libs/jquery/dist/jquery.min.js"></script>
 
@@ -77,7 +78,7 @@
 											<input type="submit" class="btn btn-success btn-block" name="daftar" value="Daftar">
 										</div>
 									</form>
-									<a class="nav-link" href="login.php">Login</a>
+									<a class="nav-link" href="auth/login.php">Login</a>
 								</div>
 							</div>
 						</div><!-- /.col -->
@@ -86,7 +87,7 @@
 			</div><!-- /.row -->
 		</div><!-- /.container -->
 	</section>
-	
+
 	<!-- footer-bottom -->
 	<div class="navbar navbar-inverse navbar-fixed-bottom footer-bottom">
 		<div class="container text-center">
@@ -98,4 +99,5 @@
 	<script src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
 
 </body>
+
 </html>
