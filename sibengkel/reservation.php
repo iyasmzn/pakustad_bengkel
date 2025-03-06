@@ -32,7 +32,7 @@ include("dist/function/reservation_status.php");
 						<table class="table table-striped table-bordered table-hover" id="tabel-data">
 							<thead>
 								<tr>
-									<th width="1%">No</th>
+									<th width="5%">ID</th>
 									<th width="10%">Tanggal</th>
 									<th width="10%">Pelanggan</th>
 									<th width="10%">Keluhan</th>
@@ -68,7 +68,8 @@ include("dist/function/reservation_status.php");
 								$ress = mysqli_query($conn, $sql);
 								while ($data = mysqli_fetch_array($ress)) {
 									echo '<tr>';
-									echo '<td class="text-center">' . $i . '</td>';
+									// echo '<td class="text-center">' . $i . '</td>';
+									echo '<td class="text-center">' . $data['id_trx'] . '</td>';
 									echo '<td class="text-center">' . $data['tanggal'] . '</td>';
 									echo '<td class="text-center">' . $data['nama_pelanggan'] . '</td>';
 									echo '<td class="text-center">' . $data['keluhan'] . '</td>';

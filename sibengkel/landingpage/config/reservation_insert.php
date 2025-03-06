@@ -20,14 +20,17 @@ if (mysqli_query($conn, $sql)) {
 }
 
 // create reservation
+// random string trx code
+$trx_code = substr(md5(uniqid(rand(), true)), 0, 10);
+
 $tanggal = mysqli_real_escape_string($conn, $_POST['tanggal']);
 $keluhan = mysqli_real_escape_string($conn, $_POST['keluhan']);
 $status = 0;
 // get id pelanggan
 $last_id = mysqli_insert_id($conn);
 
-$sql = "INSERT INTO reservations(tanggal,keluhan,status,id_pelanggan)
-		  VALUES('$tanggal','$keluhan','$status','$last_id')";
+$sql = "INSERT INTO reservations(id_trx,tanggal,keluhan,status,id_pelanggan)
+		  VALUES('$trx_code','$tanggal','$keluhan','$status','$last_id')";
 $ress = mysqli_query($conn, $sql);
 if ($ress) {
 	echo "<script>alert('Reservasi Berhasil!');</script>";
