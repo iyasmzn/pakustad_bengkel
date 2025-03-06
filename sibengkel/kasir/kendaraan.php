@@ -38,14 +38,16 @@ include("dist/function/format_rupiah.php");
 									<th width="5%">Transmisi</th>
 									<th width="5%">Kapasitas</th>
 									<th width="5%">Tahun</th>
-									<th width="20%">KTP</th>
+									<th width="20%">Pelanggan</th>
 									<th width="5%">Opsi</th>
 								</tr>
 							</thead>
 							<tbody>
 								<?php
 								$i = 1;
-								$sql = "SELECT * FROM kendaraan WHERE id_kendaraan!='0' ORDER BY nopol ASC";
+								$sql = "SELECT kendaraan.*, pelanggan.nama as nama_pelanggan FROM kendaraan 
+											LEFT JOIN pelanggan ON pelanggan.id_pelanggan=kendaraan.id_pelanggan
+											WHERE id_kendaraan!='0' ORDER BY nopol ASC";
 								$ress = mysqli_query($conn, $sql);
 								while ($data = mysqli_fetch_array($ress)) {
 									echo '<tr>';
@@ -56,7 +58,7 @@ include("dist/function/format_rupiah.php");
 									echo '<td class="text-center">' . $data['transmisi'] . '</td>';
 									echo '<td class="text-center">' . $data['kapasitas'] . '</td>';
 									echo '<td class="text-center">' . $data['tahun'] . '</td>';
-									echo '<td class="text-center">' . $data['ktp_pelanggan'] . '</td>';
+									echo '<td class="text-center">' . $data['nama_pelanggan'] . '</td>';
 									echo '<td class="text-center">
 													  <a href="kendaraan_edit.php?id_kendaraan=' . $data['id_kendaraan'] . '" class="btn btn-warning btn-xs">Edit</a>'; ?>
 									<a href="kendaraan_hapus.php?id_kendaraan=<?php echo $data['id_kendaraan']; ?>" onclick="return confirm('Apakah anda yakin akan menghapus <?php echo $data['nopol']; ?>?');" class="btn btn-danger btn-xs">Hapus</a></td>
