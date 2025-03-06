@@ -1,15 +1,16 @@
 <?php
 include("sess_check.php");
 
-$nopol = $_POST['nopol'];
-$merk = $_POST['merk'];
-$tipe = $_POST['tipe'];
-$transmisi = $_POST['transmisi'];
-$kapasitas = $_POST['kapasitas'];
-$tahun = $_POST['tahun'];
-$ktp = $_POST['ktp'];
+$nopol = mysqli_real_escape_string($conn, $_POST['nopol']);
+$merk = mysqli_real_escape_string($conn, $_POST['merk']);
+$tipe = mysqli_real_escape_string($conn, $_POST['tipe']);
+$transmisi = mysqli_real_escape_string($conn, $_POST['transmisi']);
+$kapasitas = mysqli_real_escape_string($conn, $_POST['kapasitas']);
+$tahun = mysqli_real_escape_string($conn, $_POST['tahun']);
+$ktp = mysqli_real_escape_string($conn, $_POST['ktp']);
+$id_pelanggan = mysqli_real_escape_string($conn, $_POST['id_pelanggan']);
 
-$sql = "INSERT INTO kendaraan(nopol,merk,tipe,transmisi,kapasitas,tahun,ktp_pelanggan)VALUES('$nopol','$merk','$tipe','$transmisi','$kapasitas','$tahun','$ktp')";
+$sql = "INSERT INTO kendaraan(nopol,merk,tipe,transmisi,kapasitas,tahun,ktp_pelanggan,id_pelanggan)VALUES('$nopol','$merk','$tipe','$transmisi','$kapasitas','$tahun','$ktp','$id_pelanggan')";
 $ress = mysqli_query($conn, $sql);
 if ($ress) {
 	echo "<script>alert('Tambah Kendaraan Berhasil!');</script>";
