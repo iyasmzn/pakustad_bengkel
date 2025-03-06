@@ -105,6 +105,12 @@ $tahun = date("Y");
 						} else {
 							echo '<li><a href="index.php"><i class="fa fa-home fa-fw"></i>&nbsp;Beranda</a></li>';
 						}
+						// reservasi
+						if ($pagedesc == "Reservation") {
+							echo '<li><a href="reservation.php" class="active"><i class="fa fa-list fa-fw"></i>&nbsp;Reservasi</a></li>';
+						} else {
+							echo '<li><a href="reservation.php"><i class="fa fa-list fa-fw"></i>&nbsp;Reservasi</a></li>';
+						}
 						// pelanggan
 						if ($pagedesc == "Data Pelanggan") {
 							echo '<li><a href="konsumen.php" class="active"><i class="fa fa-users fa-fw"></i>&nbsp;Data Pelanggan</a></li>';
