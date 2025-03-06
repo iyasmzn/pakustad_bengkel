@@ -4,7 +4,7 @@ include("dist/function/format_rupiah.php");
 
 $tgl = date('Y-m-d');
 $ttl = 0;
-$filter_karyawan = $_GET['filter_k'] ?? null;
+$filter_karyawan = $_GET['filter_k'] ?? $sess_kasirid;
 $sql = "SELECT reservations.*, sparepart.harga as harga_sparepart, jasa_servis.harga as harga_jasa FROM reservations 
     LEFT JOIN sparepart ON sparepart.kode=reservations.kode_sparepart
     LEFT JOIN jasa_servis ON jasa_servis.id=reservations.id_jasa_servis
