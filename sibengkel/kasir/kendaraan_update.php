@@ -11,6 +11,7 @@ if (isset($_POST['perbarui'])) {
 	$kapasitas = $_POST['kapasitas'];
 	$tahun = $_POST['tahun'];
 	$ktp = $_POST['ktp'];
+	$id_pelanggan = $_POST['id_pelanggan'];
 	$sql = "UPDATE kendaraan SET
 				nopol='" . $nopol . "',
 				merk='" . $merk . "',
@@ -18,7 +19,8 @@ if (isset($_POST['perbarui'])) {
 				transmisi='" . $transmisi . "',
 				kapasitas='" . $kapasitas . "',
 				tahun='" . $tahun . "',
-				ktp_pelanggan='" . $ktp . "'
+				ktp_pelanggan='" . $ktp . "',
+				id_pelanggan='" . $id_pelanggan . "'
 				WHERE id_kendaraan='" . $id . "'";
 
 	$ress = mysqli_query($conn, $sql);
