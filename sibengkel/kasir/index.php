@@ -4,13 +4,18 @@ include("dist/function/format_rupiah.php");
 
 $tgl = date('Y-m-d');
 $ttl = 0;
-// $sql = "SELECT * FROM reservations WHERE tanggal='$tgl' AND id_karyawan = '$sess_kasirid'";
-$sql = "SELECT * FROM reservations WHERE tanggal='$tgl'";
+$filter_karyawan = $_GET['filter_k'] ?? null;
+$sql = "SELECT reservations.*, sparepart.harga as harga_sparepart, jasa_servis.harga as harga_jasa FROM reservations 
+    LEFT JOIN sparepart ON sparepart.kode=reservations.kode_sparepart
+    LEFT JOIN jasa_servis ON jasa_servis.id=reservations.id_jasa_servis
+WHERE tanggal='$tgl'" . ($filter_karyawan ? "AND id_karyawan = '$filter_karyawan'" : "");
 $ress = mysqli_query($conn, $sql);
 $jmltrx = mysqli_num_rows($ress);
 // query database mencari data admin
 while ($data = mysqli_fetch_array($ress)) {
-	$tot = $data['total'] ?? 0;
+	$sparepart = $data['harga_sparepart'] ?? 0;
+	$jasa = $data['harga_jasa'] ?? 0;
+	$tot = $sparepart + $jasa;
 	$ttl += $tot;
 }
 // deskripsi halaman
@@ -26,6 +31,23 @@ include("layout_top.php");
 				<h1 class="page-header">Beranda</h1>
 			</div><!-- /.col-lg-12 -->
 		</div><!-- /.row -->
+
+		<!-- Filter Karyawan -->
+		<div class="row">
+			<div class="col-lg-6">
+				<select id="input-filter_k" name="id_karyawan" class="form-control" required style="margin-bottom: 10px;">
+					<option value="">Pilih Karyawan</option>
+					<?php
+					$sqlKaryawan = "SELECT * FROM karyawan ORDER BY nama_karyawan ASC";
+					$ressKaryawan = mysqli_query($conn, $sqlKaryawan);
+					while ($dataKaryawan = mysqli_fetch_array($ressKaryawan)) {
+						$selectedKaryawan = ($dataKaryawan['id_karyawan'] == $filter_karyawan) ? 'selected' : '';
+						echo "<option value='" . $dataKaryawan['id_karyawan'] . "' $selectedKaryawan>" . $dataKaryawan['nama_karyawan'] . "</option>";
+					}
+					?>
+				</select>
+			</div>
+		</div>
 
 		<div class="row">
 			<div class="col-lg-6 col-md-6">
@@ -81,6 +103,19 @@ include("layout_top.php");
 	</div><!-- /.container-fluid -->
 </div><!-- /#page-wrapper -->
 <!-- bottom of file -->
+<script>
+	$('document').ready(function() {
+		$('#input-filter_k').on('change', function() {
+			if (isNaN(this.value))
+				return;
+			else {
+				let url = new URL(window.location.href);
+				url.searchParams.set('filter_k', this.value);
+				window.location.href = url.href;
+			}
+		});
+	})
+</script>
 <?php
 include("layout_bottom.php");
 ?>
