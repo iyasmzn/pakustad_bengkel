@@ -80,7 +80,8 @@ include("dist/function/reservation_status.php");
 									echo '<td class="text-center">' . $data['nama_sparepart'] . '</td>';
 									echo '<td class="text-center">' . getStatusReservation($data['status']) . '</td>';
 									echo '<td class="text-center">
-										<a href="reservation_edit.php?res=' . $data['id_reservation'] . '" class="btn btn-warning btn-xs">Edit</a>'; ?>
+									<a href="#myModal" data-toggle="modal" data-load-code="' . $data['id_trx'] . '" data-remote-target="#myModal .modal-body" class="btn btn-primary btn-xs">Detail</a>
+									<a href="reservation_edit.php?res=' . $data['id_reservation'] . '" class="btn btn-warning btn-xs">Edit</a>'; ?>
 									<a href="reservation_delete.php?id=<?php echo $data['id_reservation']; ?>" onclick="return confirm('Apakah anda yakin akan menghapus?');" class="btn btn-danger btn-xs">Hapus</a></td>
 								<?php
 									echo '</td>';
@@ -134,9 +135,8 @@ include("dist/function/reservation_status.php");
 		var $this = $(this);
 		var code = $this.data('load-code');
 		if (code) {
-			$($this.data('remote-target')).load('karyawan_detail.php?code=' + code);
+			$($this.data('remote-target')).load('reservation_detail.php?code=' + code);
 			app.code = code;
-
 		}
 	});
 </script>
