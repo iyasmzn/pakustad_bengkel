@@ -58,7 +58,7 @@ include("layout_top.php");
 				</div>
 			</div><!-- /.panel-green -->
 
-			<div class="col-lg-6 col-md-6">
+			<!-- <div class="col-lg-6 col-md-6">
 				<div class="panel panel-yellow">
 					<div class="panel-heading">
 						<div class="row">
@@ -81,7 +81,7 @@ include("layout_top.php");
 						</div>
 					</a>
 				</div>
-			</div>
+			</div> -->
 			<!-- /.panel-green -->
 		</div><!-- /.row -->
 	</div><!-- /.container-fluid -->
