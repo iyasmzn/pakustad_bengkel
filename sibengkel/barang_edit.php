@@ -36,34 +36,28 @@ include("layout_top.php");
 							<div class="form-group">
 								<label class="control-label col-sm-3">Kode</label>
 								<div class="col-sm-4">
-									<input type="text" name="kode" class="form-control" placeholder="Kode" value="<?php echo $data['kode'] ?>" required>
-									<input type="hidden" name="id" value="<?php echo $data['id'] ?>">
+									<input type="text" name="kode" class="form-control" placeholder="Kode" value="<?php echo $data['kode']; ?>" required>
+									<input type="hidden" name="id" value="<?php echo $data['id']; ?>">
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="control-label col-sm-3">Nama</label>
 								<div class="col-sm-4">
-									<input type="text" name="nama" class="form-control" placeholder="Nama" value="<?php echo $data['nama'] ?>" required>
+									<input type="text" name="nama" class="form-control" placeholder="Nama" value="<?php echo $data['nama']; ?>" required>
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="control-label col-sm-3">Jumlah</label>
 								<div class="col-sm-4">
-									<input type="number" name="jumlah" min="0" class="form-control" placeholder="Jumlah" value="<?php echo $data['jumlah'] ?>" required>
+									<input type="number" name="jumlah" min="0" class="form-control" placeholder="Jumlah" value="<?php echo $data['jumlah']; ?>" required>
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="control-label col-sm-3">Harga</label>
 								<div class="col-sm-4">
-									<input type="number" name="harga" min="0" class="form-control" placeholder="Harga" value="<?php echo $data['harga'] ?>" required>
+									<input type="number" name="harga" min="0" class="form-control" placeholder="Harga" value="<?php echo $data['harga']; ?>" required>
 								</div>
 							</div>
-							<!-- <div class="form-group">
-										<label class="control-label col-sm-3">Keterangan</label>
-										<div class="col-sm-4">
-											<textarea name="keterangan" class="form-control" placeholder="Keterangan" rows="3" required><?php echo $data['keterangan']; ?></textarea>
-										</div>
-									</div> -->
 						</div>
 						<div class="panel-footer">
 							<button type="submit" name="perbarui" class="btn btn-success">Update</button>
