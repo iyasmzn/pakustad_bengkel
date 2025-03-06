@@ -74,7 +74,7 @@
 											<input type="submit" class="btn btn-success btn-block" name="login" value="Masuk">
 										</div>
 									</form>
-									<a class="nav-link" href="register.php">Register</a>
+									<a class="nav-link" href="../register.php">Register</a>
 								</div>
 							</div>
 						</div><!-- /.col -->
