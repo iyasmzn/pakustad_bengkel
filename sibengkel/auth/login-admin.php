@@ -73,7 +73,14 @@
 											<input type="submit" class="btn btn-success btn-block" name="login" value="Masuk">
 										</div>
 									</form>
-									<!-- <a class="nav-link" href="register.php">Register</a> -->
+									<!-- <p>
+										Dont have account?
+										<a class="nav-link" href="../register.php">Register</a>
+									</p> -->
+									<!-- back to landing page -->
+									<p class="text-right" style="margin-bottom: 0px;">
+										<a class="nav-link" href="../landingpage/index.html">Back to Landing Page</a>
+									</p>
 								</div>
 							</div>
 						</div><!-- /.col -->
