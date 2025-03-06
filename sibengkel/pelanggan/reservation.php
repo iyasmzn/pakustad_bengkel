@@ -32,7 +32,7 @@ include("../dist/function/reservation_status.php");
 						<table class="table table-striped table-bordered table-hover" id="tabel-data">
 							<thead>
 								<tr>
-									<th width="5%">ID</th>
+									<th width="5%">ID Trx</th>
 									<th width="10%">Tanggal</th>
 									<th width="10%">Keluhan</th>
 									<th width="5%">Penanganan</th>
@@ -79,7 +79,7 @@ include("../dist/function/reservation_status.php");
 									echo '<td class="text-center">' . $data['nama_sparepart'] . '</td>';
 									echo '<td class="text-center">' . getStatusReservation($data['status']) . '</td>';
 									echo '<td class="text-center">'; ?>
-									<a href="barang_hapus.php?brg=<?php echo $data['id']; ?>" onclick="return confirm('Apakah anda yakin akan menghapus <?php echo $data['id']; ?>?');" class="btn btn-danger btn-xs">Hapus</a></td>
+									<a href="reservation_delete.php?id=<?php echo $data['id_reservation']; ?>" onclick="return confirm('Apakah anda yakin akan menghapus <?php echo $data['id_trx']; ?>?');" class="btn btn-danger btn-xs">Hapus</a></td>
 								<?php
 									echo '</td>';
 									echo '</tr>';
