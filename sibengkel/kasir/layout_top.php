@@ -87,7 +87,7 @@ $tahun = date("Y");
 					<ul class="dropdown-menu dropdown-user">
 						<li><a href="pengaturan.php"><i class="fa fa-gear fa-fw"></i>&nbsp;Pengaturan Akun</a></li>
 						<li class="divider"></li>
-						<li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Keluar</a></li>
+						<li><a href="../auth/logout.php"><i class="fa fa-sign-out fa-fw"></i> Keluar</a></li>
 					</ul><!-- /.dropdown-user -->
 				</li><!-- /.dropdown -->
 			</ul><!-- /.navbar-top-links -->

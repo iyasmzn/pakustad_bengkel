@@ -34,7 +34,7 @@ $sql = "INSERT INTO reservations(id_trx,tanggal,keluhan,status,id_pelanggan)
 $ress = mysqli_query($conn, $sql);
 if ($ress) {
 	echo "<script>alert('Reservasi Berhasil!');</script>";
-	echo "<script type='text/javascript'> document.location = '../../login.php'; </script>";
+	echo "<script type='text/javascript'> document.location = '../../auth/login.php'; </script>";
 } else {
 	echo ("Error description: " . mysqli_error($conn));
 	echo "<script>alert('Ops, terjadi kesalahan. Silahkan coba lagi.');</script>";
