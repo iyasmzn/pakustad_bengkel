@@ -101,7 +101,7 @@ $pagetitle = str_replace(" ", "_", $pagedesc)
 						$tot = $hargaSparepart + $hargaJasa;
 						echo '<tr>';
 						echo '<td class="text-center">' . $i . '</td>';
-						echo '<td class="text-center">' . $data['id_reservation'] . '</td>';
+						echo '<td class="text-center">' . $data['id_trx'] . '</td>';
 						echo '<td class="text-center">' . $data['tanggal'] . '</td>';
 						echo '<td class="text-center">' . $data['nama'] . '</td>';
 						echo '<td class="text-center">' . $data['nama_karyawan'] . '</td>';

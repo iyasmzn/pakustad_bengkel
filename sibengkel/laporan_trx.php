@@ -67,8 +67,8 @@ include("dist/function/format_rupiah.php");
                     <thead>
                       <tr>
                         <th width="1%">No</th>
-                        <th width="10%">ID Reservasi</th>
-                        <th width="10%">Tgl</th>
+                        <th width="10%">ID Trx</th>
+                        <th width="10%">Tgl Trx</th>
                         <th width="10%">Pelanggan</th>
                         <th width="10%">Karyawan</th>
                         <th width="10%">Total</th>
@@ -84,7 +84,7 @@ include("dist/function/format_rupiah.php");
                         $tot = $hargaSparepart + $hargaJasa;
                         echo '<tr>';
                         echo '<td class="text-center">' . $i . '</td>';
-                        echo '<td class="text-center">' . $data['id_reservation'] . '</td>';
+                        echo '<td class="text-center">' . $data['id_trx'] . '</td>';
                         echo '<td class="text-center">' . $data['tanggal'] . '</td>';
                         echo '<td class="text-center">' . $data['nama'] . '</td>';
                         echo '<td class="text-center">' . $data['nama_karyawan'] . '</td>';
